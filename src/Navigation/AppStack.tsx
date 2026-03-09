@@ -1,14 +1,9 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text } from 'react-native';
+import Home from '../View/Screens/Auth/Home';
 
 const Stack = createNativeStackNavigator();
-
-const Home = () => (
-  <View>
-    <Text>FoodMart Home</Text>
-  </View>
-);
 
 const AppStack = () => {
   return (
@@ -17,5 +12,6 @@ const AppStack = () => {
     </Stack.Navigator>
   );
 };
+
 
 export default AppStack;

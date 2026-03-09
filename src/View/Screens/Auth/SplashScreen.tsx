@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native';
 import { Storage } from '../../../Services/storage';
 import { useAppDispatch } from '../../../Redux/hooks';
 import { restoreUser } from '../../../Redux/authSlice';
+import { ImageName } from '../../../adapter/asserts/images';
 
 const SplashScreen = () => {
   const dispatch = useAppDispatch();
@@ -10,16 +11,27 @@ const SplashScreen = () => {
   useEffect(() => {
     const checkUser = async () => {
       const user = await Storage.getUser();
-      dispatch(restoreUser(user));
+
+      setTimeout(() => {
+        dispatch(restoreUser(user));
+      }, 3000);
     };
 
     checkUser();
   }, []);
 
   return (
-    <View>
-      <Text>FoodMart</Text>
-    </View>
+    // <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+    //   <Text>FoodMart</Text>
+    // </View>
+
+    <ImageBackground
+      source={ImageName.Splash}
+      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+      resizeMode='cover'
+    >
+
+    </ImageBackground>
   );
 };
 
