@@ -7,9 +7,19 @@ import { FontSize } from '../../../adapter/constants'
 import { BlankSpace } from '../../Components/BlankSpace'
 import { WWButton } from '../../Components/WWButton'
 import { ColorName, useColor } from '../../../model/color'
+import { useAppDispatch } from '../../../Redux/hooks'
+import { setOnboardingSeen } from '../../../Redux/authSlice'
+import { Storage } from '../../../Services/storage'
 
 const OnBoarding = () => {
      const color = useColor();
+     const dispatch = useAppDispatch();
+
+     const handleGetStarted = async() => {
+        //  dispatch(setOnboardingSeen());
+        await Storage.setOnboardingSeen();
+        dispatch(setOnboardingSeen());
+     }
 
   const styles = useMemo(() => createStyles(color), [color])
 
@@ -36,6 +46,7 @@ const OnBoarding = () => {
           label="Get Started"
           style={styles.button}
           size="medium"
+          onPress={handleGetStarted}
         />
       </View>
     </ImageBackground>

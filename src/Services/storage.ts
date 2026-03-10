@@ -13,4 +13,14 @@ export const Storage = {
   removeUser: async () => {
     await AsyncStorage.removeItem('FOODMART_USER');
   },
+
+  // ✅ add these two
+  setOnboardingSeen: async () => {
+    await AsyncStorage.setItem('FOODMART_ONBOARDING', 'true');
+  },
+
+  getOnboardingSeen: async (): Promise<boolean> => {
+    const value = await AsyncStorage.getItem('FOODMART_ONBOARDING');
+    return value === 'true';
+  },
 };

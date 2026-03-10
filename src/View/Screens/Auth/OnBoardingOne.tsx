@@ -1,5 +1,5 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ImageName } from '../../../adapter/asserts/images'
 import { hp, wp } from '../../../utils/dimention' // Added wp for horizontal padding
 import { FontFamily } from '../../../adapter/asserts/fonts'
@@ -8,14 +8,25 @@ import { BlankSpace } from '../../Components/BlankSpace'
 import { WWButton } from '../../Components/WWButton'
 import { ColorName, useColor } from '../../../model/color'
 import { useNavigation } from '@react-navigation/native'
+import { Storage } from '../../../Services/storage'
+import { useAppDispatch } from '../../../Redux/hooks'
 
 const OnBoardingOne = () => {
     const color = useColor();
     const navigation = useNavigation();
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigation.navigate('OnBoarding' as never);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, [navigation]);
 
     const handleNext = () => {
         return () => {
-         navigation.navigate('OnBoarding' as never);
+            navigation.navigate('OnBoarding' as never);
         };
     };
 
