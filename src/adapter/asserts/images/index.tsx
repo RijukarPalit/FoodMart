@@ -5,5 +5,7 @@ export const ImageName = {
     Splash : require('./SplashNew2.png'),
     OnBoardingImg : require('./OnboardingNew.png'),
     OnboardingImg1 : require('./OnBoading1.png'),
+    AuthBg : require('./auth_background.png'),
+    BackArrow : require('./Back.png'),
 
 }

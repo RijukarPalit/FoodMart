@@ -1,5 +1,5 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { ImageName } from '../../../adapter/asserts/images'
 import { hp, wp } from '../../../utils/dimention' // Added wp for horizontal padding
 import { FontFamily } from '../../../adapter/asserts/fonts'
@@ -29,6 +29,8 @@ const OnBoardingOne = () => {
             navigation.navigate('OnBoarding' as never);
         };
     };
+
+    const styles = useMemo(() => createStyles(color), [color])
 
     return (
         <ImageBackground
@@ -64,48 +66,50 @@ const OnBoardingOne = () => {
 
 export default OnBoardingOne
 
-const styles = StyleSheet.create({
-    background: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        paddingBottom: hp(8),
-        paddingHorizontal: wp(10),
-    },
-    textWrapper: {
-        alignItems: 'flex-start',
-    },
-    heading: {
-        fontSize: FontSize.Size.small_5x,
-        lineHeight: hp(4.5),
-        fontFamily: FontFamily.MANROPE.BOLD,
-        color: '#1C1C1C',
-        opacity: 0.9,
-    },
-    highlightText: {
-        color: '#C67C4E', // Using your brand brown/orange for emphasis
-    },
-    accentBar: {
-        width: wp(15),
-        height: 4,
-        backgroundColor: '#C67C4E',
-        marginVertical: hp(1.5),
-        borderRadius: 2,
-    },
-    subHeading: {
-        fontSize: FontSize.Size.small_3x,
-        fontFamily: FontFamily.MANROPE.MEDIUM,
-        color: '#555555',
-        lineHeight: hp(2.5),
-        opacity: 0.8,
-    },
-    button: {
-        minHeight: hp(6.5),
-        width: '100%', // Full width inside the padded container
-        borderRadius: 16,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-})
+const createStyles = (color: any) =>
+    StyleSheet.create({
+        background: {
+            flex: 1,
+        },
+        contentContainer: {
+            flex: 1,
+            justifyContent: 'flex-end',
+            paddingBottom: hp(8),
+            paddingHorizontal: wp(10),
+        },
+        textWrapper: {
+            alignItems: 'flex-start',
+        },
+        heading: {
+            fontSize: FontSize.Size.small_5x,
+            lineHeight: hp(4.5),
+            fontFamily: FontFamily.MANROPE.BOLD,
+            color: '#1C1C1C',
+            opacity: 0.9,
+        },
+        highlightText: {
+            color: '#C67C4E', // Using your brand brown/orange for emphasis
+        },
+        accentBar: {
+            width: wp(15),
+            height: 4,
+            // backgroundColor: '#C67C4E',
+            backgroundColor : color[ColorName.primary],
+            marginVertical: hp(1.5),
+            borderRadius: 2,
+        },
+        subHeading: {
+            fontSize: FontSize.Size.small_3x,
+            fontFamily: FontFamily.MANROPE.MEDIUM,
+            color: '#555555',
+            lineHeight: hp(2.5),
+            opacity: 0.8,
+        },
+        button: {
+            minHeight: hp(6.5),
+            width: '100%', // Full width inside the padded container
+            borderRadius: 16,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+    })
