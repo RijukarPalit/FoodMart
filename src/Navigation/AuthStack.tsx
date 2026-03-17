@@ -4,6 +4,8 @@ import SignUpScreen from '../View/Screens/Auth/SignUpScreen';
 import OnBoarding from '../View/Screens/Auth/OnBoarding';
 import OnBoardingOne from '../View/Screens/Auth/OnBoardingOne';
 import { useAppSelector } from '../Redux/hooks';
+import Login from '../View/Screens/Auth/Login';
+import Home from '../View/Screens/Auth/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,9 +21,9 @@ const AuthStack = () => {
         <Stack.Screen name="Signup" component={SignUpScreen} />
       </>
       ) : (
-        // Already seen onboarding → go straight to Signup
         <>
           <Stack.Screen name="Signup" component={SignUpScreen} />
+          <Stack.Screen name="Login" component={Login} />
           {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
         </>
       )}

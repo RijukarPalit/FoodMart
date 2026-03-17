@@ -41,6 +41,7 @@ export enum ColorName {
     GreenVariant = 'GreenVariant', //#3C8E60
     lightPink1 = '#F18F84',
     lightPink2 = '#F18F8466',
+    lightPink3 = 'lightPink3', //#EDD6C8
     // Additional Colors
     Black = 'Black',
     Grey1 = 'Grey1',
@@ -56,6 +57,8 @@ export enum ColorName {
     Ripple = 'Ripple',
     Red = 'Red',
     LightGreen = 'LightGreen',
+    darkGray2 = 'darkGray2',
+
 }
 
 export type ColorObject = { [key in ColorName]: string };

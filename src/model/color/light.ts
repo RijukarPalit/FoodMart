@@ -65,4 +65,6 @@ export const light: ColorObject = {
   [ColorName.LightGreen]: '#DEF3EB',
   [ColorName.lightPink1]: '#F18F84',
   [ColorName.lightPink2]: '#F18F8466',
+  [ColorName.lightPink3] : '#EDD6C8',
+  [ColorName.darkGray2] : '#313131',
 };
