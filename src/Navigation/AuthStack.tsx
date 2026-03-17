@@ -6,6 +6,7 @@ import OnBoardingOne from '../View/Screens/Auth/OnBoardingOne';
 import { useAppSelector } from '../Redux/hooks';
 import Login from '../View/Screens/Auth/Login';
 import Home from '../View/Screens/Auth/Home';
+import ForgotPassword from '../View/Screens/Auth/ForgotPassword';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ const AuthStack = () => {
         <>
           <Stack.Screen name="Signup" component={SignUpScreen} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
           {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
         </>
       )}

@@ -114,6 +114,15 @@ const Login = () => {
               eyeClosedIcon={ImageName.EyeClosed}
             />
 
+            <View style={{left : wp(50)}}>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => navigation.navigate('ForgotPassword' as never)}
+              >
+                <Text style={styles.forgotPassword}>Forgot Password?</Text>
+              </TouchableOpacity>
+            </View>
+
             {/* Login Button */}
             <WWButton
               label="Login"                  
@@ -223,4 +232,10 @@ const createStyles = (color: any) =>
       color: '#E91E8C',
       marginTop: hp(0.5),
     },
+    forgotPassword : {
+      fontSize: FontSize.Size.small_3x,
+      fontFamily: FontFamily.MANROPE.BOLD,
+      color: '#E91E8C',
+      marginTop: hp(0.5),
+    }
   });
